@@ -1,0 +1,8 @@
+pnpm-lock.yaml
+uv.lock
+packages/api-client/src
+packages/api-client/openapi.json
+.next
+node_modules
+CLAUDE.md
+docs/0[1-4]-*.md

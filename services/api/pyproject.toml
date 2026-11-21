@@ -1,0 +1,23 @@
+[project]
+name = "siaga-api"
+version = "0.0.0"
+description = "Siaga FastAPI modular monolith"
+requires-python = ">=3.12,<3.13"
+dependencies = []
+
+[dependency-groups]
+dev = ["ruff>=0.8", "pyright>=1.1.390", "pytest>=8", "import-linter>=2.1"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC", "S", "RUF"]
+ignore = ["S101"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "strict"
+include = ["src", "tests"]

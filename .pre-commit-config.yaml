@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.0
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.17.6
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^services/api/
+      - id: ruff-format
+        files: ^services/api/
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: [--maxkb=500]
+  - repo: local
+    hooks:
+      # Uses the prettier pinned in package.json (the pre-commit mirror only ships a v4 alpha).
+      - id: prettier
+        name: prettier
+        entry: pnpm exec prettier --write --ignore-unknown
+        language: system
+        types_or: [json, yaml, markdown, ts, tsx, javascript]
+        exclude: ^(packages/api-client/|pnpm-lock.yaml|uv.lock|CLAUDE.md|docs/0[1-4]-)

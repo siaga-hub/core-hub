@@ -1,0 +1,8 @@
+title = "siaga"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Local-dev placeholders in .env.example"
+paths = ['''^\.env\.example$''']
